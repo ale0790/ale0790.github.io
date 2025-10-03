@@ -1,5 +1,8 @@
 # Progresso
 
+## 2025-10-03 14:13 (-03)
+- Corrigido `index.html`: removido bloco de CSS solto antes do `<!DOCTYPE html>` que estava sendo renderizado como texto na página.
+
 ## 2025-10-03 13:42 (-03)
 - Melhorado espaçamento em `#soft-skills` no `index.html`:
   - Aumentado `gap` da grid (`.soft-skills-grid`).
