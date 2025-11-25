@@ -21,7 +21,7 @@
 
 ### 2. Sobre Mim
 Texto descritivo destacando:
-- 34 anos de idade com foco em inovação tecnológica
+- 35 anos de idade com foco em inovação tecnológica
 - Especialista em liderança de equipes de desenvolvimento
 - Expertise em sistemas para área da saúde
 - Paixão por resolver problemas complexos através da tecnologia
