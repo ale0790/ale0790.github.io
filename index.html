@@ -3,844 +3,572 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alessandro Guimarães - CTO & Tech Leader</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #2563eb;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #2563eb;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: #999;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .hero .tagline {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Sections */
-        .section {
-            padding: 100px 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2563eb;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: #667eea;
-        }
-
-        /* About Section */
-        .about {
-            background: #f8fafc;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #2563eb;
-            display: block;
-        }
-
-        /* Education Section */
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .education-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .education-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .education-card .degree {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #2563eb;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .institution {
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .year {
-            background: #667eea;
-            color: white;
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
-
-        /* Skills Section */
-        .skills {
-            background: #f8fafc;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .skill-category h3 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: #e2e8f0;
-            color: #475569;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: #667eea;
-            color: white;
-        }
-
-        /* Experience Section */
-        .experience-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .experience-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(180deg, #667eea, #764ba2);
-        }
-
-        .job-header {
-            margin-bottom: 2rem;
-        }
 
-        .job-title {
-            font-size: 1.5rem;
-            color: #2563eb;
-            margin-bottom: 0.5rem;
-        }
-
-        .company {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-
-        .job-period {
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
-
-        .achievement-section {
-            margin-bottom: 2rem;
-        }
-
-        .achievement-section h4 {
-            color: #2563eb;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .achievement-list {
-            list-style: none;
-        }
-
-        .achievement-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .achievement-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: bold;
-        }
-
-        /* Project Section */
-        .project {
-            background: #f8fafc;
-        }
-
-        .project-card {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .project-title {
-            font-size: 2rem;
-            color: #2563eb;
-            margin-bottom: 1rem;
-        }
-
-        .project-modules {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .module-card {
-            background: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .module-card h4 {
-            color: #2563eb;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Integrations Section */
-        .integrations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .integration-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .integration-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .integration-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        /* Soft Skills Section */
-        .soft-skills {
-            background: #f8fafc;
-        }
-
-        .soft-skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .soft-skill {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            min-height: 140px;
-            transition: transform 0.3s ease;
-        }
-
-        .soft-skill:hover {
-            transform: translateY(-2px);
-        }
-
-        .soft-skill-icon {
-            width: 80px;
-            height: 80px;
-            aspect-ratio: 1 / 1;
-            flex: 0 0 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.75rem;
-            line-height: 1;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: #1e293b;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .social-links {
-                gap: 0.5rem;
-            }
-
-            .social-links a {
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .scroll-top:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
-        }
-
-        .scroll-top.visible {
-            display: flex;
-        }
-    </style>
+    <title>Alessandro Guimarães — CTO, Tech Leader e Arquiteto de Software (Java)</title>
+    <meta name="description" content="CTO e líder técnico com 10+ anos em back-end Java e 4+ anos liderando times. Cofundador e arquiteto do Rang Saúde (SUS), Torneyo e Panel4You. Integrações Hórus, RNDS, SIGTAP e e-SUS AB.">
+    <meta name="author" content="Alessandro Guimarães">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#4f46e5">
+
+    <link rel="canonical" href="https://ale0790.github.io/">
+    <link rel="alternate" hreflang="pt-BR" href="https://ale0790.github.io/">
+    <link rel="alternate" hreflang="en" href="https://ale0790.github.io/en/">
+    <link rel="alternate" hreflang="x-default" href="https://ale0790.github.io/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Alessandro Guimarães">
+    <meta property="og:title" content="Alessandro Guimarães — CTO, Tech Leader e Arquiteto de Software (Java)">
+    <meta property="og:description" content="CTO e líder técnico com 10+ anos em back-end Java e 4+ anos liderando times. Cofundador e arquiteto do Rang Saúde (SUS), Torneyo e Panel4You.">
+    <meta property="og:url" content="https://ale0790.github.io/">
+    <meta property="og:image" content="https://ale0790.github.io/profile.png">
+    <meta property="og:image:alt" content="Foto de Alessandro Guimarães">
+    <meta property="profile:first_name" content="Alessandro">
+    <meta property="profile:last_name" content="Guimarães">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alessandro Guimarães — CTO, Tech Leader e Arquiteto de Software (Java)">
+    <meta name="twitter:description" content="CTO e líder técnico com 10+ anos em back-end Java. Cofundador do Rang Saúde (SUS), Torneyo e Panel4You.">
+    <meta name="twitter:image" content="https://ale0790.github.io/profile.png">
+
+    <link rel="icon" href="profile.png" type="image/png">
+    <link rel="apple-touch-icon" href="profile.png">
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+
+    <!-- Aplica o tema antes da pintura, evitando flash de tela clara -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t) document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { /* ignora */ }
+        })();
+    </script>
+
+    <!-- Dados estruturados: é o que Google e assistentes de IA leem para entender quem você é -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://ale0790.github.io/#person",
+          "name": "Alessandro Guimarães",
+          "givenName": "Alessandro",
+          "familyName": "Guimarães",
+          "url": "https://ale0790.github.io/",
+          "image": "https://ale0790.github.io/profile.png",
+          "email": "mailto:webhouse01@gmail.com",
+          "telephone": "+55-46-98409-3769",
+          "jobTitle": "CTO / Tech Leader / Arquiteto de Software",
+          "description": "Engenheiro de software e líder técnico com mais de 10 anos de experiência em sistemas back-end, incluindo 4+ anos liderando equipes como CTO/Tech Lead. Cofundador e arquiteto de plataforma de gestão em saúde pública (SUS).",
+          "knowsLanguage": [
+            { "@type": "Language", "name": "Português", "alternateName": "pt" },
+            { "@type": "Language", "name": "Inglês", "alternateName": "en" }
+          ],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Rang Tecnologia e Desenvolvimento de Sistemas",
+            "url": "https://rangsaude.com.br"
+          },
+          "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "UNIPAR — Universidade Paranaense" },
+            { "@type": "CollegeOrUniversity", "name": "UNICIV — Centro de Inovação VincIT" },
+            { "@type": "CollegeOrUniversity", "name": "Faculdade Brasília" },
+            { "@type": "CollegeOrUniversity", "name": "Faculdade Exame" }
+          ],
+          "knowsAbout": [
+            "Java", "Spring", "Hibernate", "JPA", "JSF", "PrimeFaces",
+            "PostgreSQL", "MySQL performance tuning", "REST", "SOAP", "Linux",
+            "Arquitetura de software", "Liderança técnica", "CI/CD", "Docker", "Nginx",
+            "Observabilidade", "Grafana", "New Relic",
+            "Desenvolvimento assistido por IA", "Prompt engineering", "LLM",
+            "Faturamento SUS", "RNDS", "Hórus", "SIGTAP", "e-SUS AB"
+          ],
+          "address": { "@type": "PostalAddress", "addressCountry": "BR" },
+          "sameAs": [
+            "https://www.linkedin.com/in/alessandro-guimaraes",
+            "https://github.com/ale0790",
+            "https://torneyo.com",
+            "https://panel4you.io"
+          ]
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://ale0790.github.io/#webpage",
+          "url": "https://ale0790.github.io/",
+          "name": "Alessandro Guimarães — CTO, Tech Leader e Arquiteto de Software",
+          "inLanguage": "pt-BR",
+          "mainEntity": { "@id": "https://ale0790.github.io/#person" }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <!-- Header -->
+    <a class="skip-link" href="#main">Ir para o conteúdo</a>
+
     <header>
         <nav>
-            <div class="logo">Alessandro G.</div>
+            <a class="logo" href="#home">Alessandro G.</a>
             <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
                 <li><a href="#about">Sobre</a></li>
-                <li><a href="#education">Formação</a></li>
-                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#impact">Impacto</a></li>
                 <li><a href="#experience">Experiência</a></li>
                 <li><a href="#projects">Projetos</a></li>
-                <li><a href="#services">Serviços</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="curriculo.html">Currículo</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="nav-actions">
+                <a class="lang-switch" href="en/" hreflang="en" lang="en" title="Read in English">
+                    <i class="fas fa-globe" aria-hidden="true"></i> EN
+                </a>
+                <button class="icon-btn theme-toggle" type="button" aria-label="Alternar tema claro/escuro" aria-pressed="false">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+                <button class="icon-btn menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <main id="main">
+    <!-- Hero -->
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="container">
             <div class="profile-img">
-                <img src="profile.png" alt="Foto de perfil de Alessandro Guimarães" style="width:100%; height:100%; object-fit: cover; border-radius: 50%;" />
+                <img src="profile.png" width="156" height="156" alt="Foto de Alessandro Guimarães">
             </div>
             <h1>Alessandro Guimarães</h1>
-            <div class="subtitle">CTO | Tech Leader | Desenvolvedor Back-End</div>
-            <div class="tagline">Persistente • Autodidata • Apaixonado por Tecnologia</div>
-            
+            <p class="subtitle">CTO · Tech Leader · Arquiteto de Software · Back-End Java</p>
+            <p class="tagline">
+                10+ anos projetando, construindo e operando sistemas back-end — 4+ anos liderando
+                times de tecnologia. Cofundador e arquiteto de plataformas usadas na saúde pública
+                brasileira, com integrações aos sistemas nacionais do Ministério da Saúde.
+            </p>
+
             <div class="social-links">
-                <a href="mailto:alessandro@rangtecnologia.com.br" target="_blank">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/alessandro-guimaraes" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/ale0790" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="tel:+5546984093769">
-                    <i class="fas fa-phone"></i>
-                </a>
+                <a href="mailto:webhouse01@gmail.com" aria-label="Enviar e-mail"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/alessandro-guimaraes" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://github.com/ale0790" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                <a href="tel:+5546984093769" aria-label="Telefone"><i class="fas fa-phone" aria-hidden="true"></i></a>
             </div>
-            
-            <a href="#contact" class="cta-button">Entre em Contato</a>
+
+            <div class="hero-cta">
+                <a href="curriculo.html" class="cta-button"><i class="fas fa-file-lines" aria-hidden="true"></i> Ver currículo completo</a>
+                <a href="cv/Alessandro_Guimaraes_Curriculo_PT.docx" class="cta-button ghost" download><i class="fas fa-download" aria-hidden="true"></i> Baixar CV (PT)</a>
+                <a href="#contact" class="cta-button ghost"><i class="fas fa-paper-plane" aria-hidden="true"></i> Falar comigo</a>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
+    <!-- Sobre -->
+    <section id="about" class="section alt">
         <div class="container">
-            <h2 class="section-title fade-in">Sobre Mim</h2>
+            <h2 class="section-title fade-in">Sobre <span>mim</span></h2>
+            <p class="section-lead fade-in">Engenheiro de software, líder técnico e cofundador de produto.</p>
+
             <div class="about-content">
                 <div class="about-text fade-in">
-                    <p>Com 34 anos e uma paixão incansável pela tecnologia, sou um profissional que combina expertise técnica sólida com habilidades de liderança comprovadas. Lidero equipes no desenvolvimento de soluções inovadoras para o setor público e privado.</p>
-                    
-                    <p>Minha jornada é marcada pela busca constante de conhecimento — sempre autodidata e persistente na resolução de problemas complexos. Especializo-me em arquitetar sistemas robustos e em integrar soluções entre plataformas críticas.</p>
-                    
-                    <p>Acredito que a tecnologia deve servir às pessoas, e é com essa filosofia que desenvolvo cada projeto, sempre focando na experiência do usuário e no impacto positivo na sociedade.</p>
+                    <p>
+                        Sou <strong>engenheiro de software e líder técnico</strong> com mais de 10 anos de
+                        experiência projetando, construindo e operando sistemas back-end — incluindo
+                        <strong>4+ anos liderando equipes de tecnologia como CTO/Tech Lead</strong>.
+                    </p>
+                    <p>
+                        Sou <strong>cofundador e arquiteto do Rang Saúde</strong>, plataforma de gestão utilizada
+                        em múltiplos módulos do sistema público de saúde brasileiro (SUS), com integrações a
+                        diversos sistemas nacionais do Ministério da Saúde — Hórus, RNDS, SIGTAP e e-SUS AB.
+                    </p>
+                    <p>
+                        Trabalho com <strong>engenharia de performance em produção</strong> (diagnóstico de JVM,
+                        otimização de queries) e incorporo <strong>ferramentas de IA generativa/LLM</strong>
+                        (Claude Code, OpenCode e múltiplos modelos) em todo o ciclo de desenvolvimento —
+                        requisitos, arquitetura, codificação, testes, revisão de código e documentação — elevando
+                        a produtividade e a qualidade de entrega dos times.
+                    </p>
+                    <p>
+                        Além do trabalho principal, sou cofundador e responsável técnico de dois SaaS próprios:
+                        <strong>Torneyo</strong> (gestão de campeonatos esportivos) e <strong>Panel4You</strong>
+                        (gestão de filas e painéis de atendimento), atuando de ponta a ponta em arquitetura,
+                        back-end, front-end e infraestrutura.
+                    </p>
                 </div>
-                
+
                 <div class="about-stats fade-in">
                     <div class="stat-item">
-                        <span class="stat-number">34</span>
-                        <span>Anos de Idade</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">12+</span>
-                        <span>Anos de Experiência</span>
-                    </div>
-                    <div class="stat-item">
                         <span class="stat-number">10+</span>
-                        <span>Cofundação de Produto</span>
+                        <span>Anos de experiência</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4+</span>
+                        <span>Anos liderando times</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span>Produtos cofundados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span>Integrações nacionais (SUS)</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
+    <!-- Impacto -->
+    <section id="impact" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Formação Acadêmica</h2>
-            <div class="education-grid">
-                <div class="education-card fade-in">
-                    <div class="degree">Bacharelado em Sistemas de Informação</div>
-                    <div class="institution">UNIPAR - Francisco Beltrão</div>
-                    <span class="year">2012</span>
+            <h2 class="section-title fade-in">Resultados em <span>produção</span></h2>
+            <p class="section-lead fade-in">
+                Casos concretos de diagnóstico e otimização em sistemas rodando com usuários reais.
+            </p>
+
+            <div class="impact-grid">
+                <div class="impact-card fade-in">
+                    <div class="impact-metric">200+ threads</div>
+                    <h3>Diagnóstico de JVM em produção</h3>
+                    <p>
+                        Análise de thread dump com mais de 200 threads para isolar um <em>blocked socket read</em>
+                        que revelou um gargalo de banco de dados — usando Claude Code como parceiro de
+                        investigação técnica.
+                    </p>
                 </div>
-                <div class="education-card fade-in">
-                    <div class="degree">Pós-graduação Full Stack Java Developer</div>
-                    <div class="institution">UNICIV - Maringá, PR</div>
-                    <span class="year">2021</span>
+                <div class="impact-card fade-in">
+                    <div class="impact-metric">85 mil+ queries</div>
+                    <h3>Tuning de MySQL</h3>
+                    <p>
+                        Profiling do slow query log (85 mil+ queries) para desenhar índices compostos que
+                        eliminaram full table scans em tabelas com centenas de milhares de linhas.
+                    </p>
                 </div>
-                <div class="education-card fade-in">
-                    <div class="degree">MBA em Arquitetura FullCycle</div>
-                    <div class="institution">Faculdade Brasília</div>
-                    <span class="year">Cursando - 2025</span>
+                <div class="impact-card fade-in">
+                    <div class="impact-metric">CI/CD + APM</div>
+                    <h3>Observabilidade e resposta a incidentes</h3>
+                    <p>
+                        Pipelines de CI/CD para teste e produção, com Grafana e New Relic monitorando
+                        infraestrutura e aplicação — reduzindo o tempo de identificação e resolução de incidentes.
+                    </p>
                 </div>
-                <div class="education-card fade-in">
-                    <div class="degree">MBA em IA para Negócios</div>
-                    <div class="institution">Faculdade Exame</div>
-                    <span class="year">Cursando - 2025</span>
+                <div class="impact-card fade-in">
+                    <div class="impact-metric">Ciclo completo</div>
+                    <h3>Desenvolvimento assistido por IA</h3>
+                    <p>
+                        LLMs integrados a análise de requisitos, arquitetura, codificação, análise automatizada
+                        de bugs e vulnerabilidades, geração de testes unitários, documentação e code review.
+                        <em>Prompt engineering</em> como habilidade central do dia a dia.
+                    </p>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-metric">Time + processo</div>
+                    <h3>Gestão e previsibilidade de entrega</h3>
+                    <p>
+                        Implementação de Jira para gestão de demandas e de dailies, melhorando organização,
+                        rastreabilidade, comunicação entre times e previsibilidade de entrega.
+                    </p>
+                </div>
+                <div class="impact-card fade-in">
+                    <div class="impact-metric">Contratação</div>
+                    <h3>Formação de time técnico</h3>
+                    <p>
+                        Condução de entrevistas e testes técnicos garantindo alto padrão da equipe, além de
+                        mentoria, gestão de conflitos e melhoria contínua do ambiente de trabalho.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
+    <!-- Experiência -->
+    <section id="experience" class="section alt">
         <div class="container">
-            <h2 class="section-title fade-in">Habilidades Técnicas</h2>
+            <h2 class="section-title fade-in">Experiência <span>profissional</span></h2>
+            <p class="section-lead fade-in">Da operação de sistemas de saúde municipal à liderança técnica como CTO.</p>
+
+            <div class="timeline">
+                <article class="timeline-item fade-in">
+                    <span class="timeline-period">Jul/2022 — Atual</span>
+                    <h3>CTO / Tech Leader / Desenvolvedor Back-End</h3>
+                    <p class="timeline-company">Rang Tecnologia e Desenvolvimento de Sistemas</p>
+                    <ul class="achievement-list">
+                        <li>Coordenação e desenvolvimento de equipes de tecnologia, com alinhamento estratégico aos objetivos da empresa.</li>
+                        <li>Implementação do Jira e de dailies, melhorando organização, rastreabilidade e produtividade.</li>
+                        <li>Condução de entrevistas e testes técnicos; mentoria, gestão de conflitos e melhoria contínua do ambiente.</li>
+                        <li>Implementação de CI/CD para ambientes de teste e produção; adoção de Grafana e New Relic para observabilidade.</li>
+                        <li>Engenharia de performance com apoio de IA: thread dump de JVM (200+ threads) e slow query log de MySQL (85 mil+ queries).</li>
+                        <li>Uso de LLMs (Claude Code, OpenCode e outros modelos) em todas as etapas do ciclo de desenvolvimento.</li>
+                        <li>Cofundador e arquiteto do Rang Saúde: Faturamento SUS (RAAS, BPA, AIH, e-SUS), Prontuário Eletrônico, Gestão de Contratos, Controle de Orçamento/Cotas e Avaliação de Atendimento (NPS).</li>
+                        <li>Integrações com sistemas nacionais: Hórus, RNDS, SIGTAP e e-SUS AB.</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-item fade-in">
+                    <span class="timeline-period">Jul/2021 — Jul/2022</span>
+                    <h3>Desenvolvedor Back-End Java</h3>
+                    <p class="timeline-company">Globalsys Soluções em TI</p>
+                    <ul class="achievement-list">
+                        <li>Desenvolvimento e manutenção de sistemas para cliente do setor de e-commerce.</li>
+                        <li>ERP interno, plataforma de e-commerce e microserviço de gamificação.</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-item fade-in">
+                    <span class="timeline-period">Fev/2016 — Dez/2020</span>
+                    <h3>CTO / Desenvolvedor Full Stack Java</h3>
+                    <p class="timeline-company">Rang Tecnologia e Desenvolvimento de Sistemas</p>
+                    <ul class="achievement-list">
+                        <li>Liderança técnica na concepção e desenvolvimento do Rang Saúde desde o início.</li>
+                        <li>Arquitetura voltada para escalabilidade, segurança e conformidade com as regulamentações do SUS.</li>
+                        <li>Módulos fundadores: Regulação de consultas e exames, Controle de Estoque, Faturamento BPA e Laboratório.</li>
+                        <li>Gerenciamento de servidores e infraestrutura; práticas iniciais de DevOps para deploy e monitoramento.</li>
+                    </ul>
+                </article>
+
+                <article class="timeline-item fade-in">
+                    <span class="timeline-period">Mai/2014 — Jan/2016</span>
+                    <h3>Analista de Informática</h3>
+                    <p class="timeline-company">Prefeitura Municipal de Dionísio Cerqueira — SC</p>
+                    <ul class="achievement-list">
+                        <li>Gestão e suporte aos sistemas de saúde da Secretaria Municipal de Saúde, incluindo faturamento do SUS (RAAS, BPA, AIH).</li>
+                        <li>Suporte técnico e análise de requisitos junto a unidades básicas, farmácias e serviços especializados.</li>
+                        <li>Treinamento de profissionais de saúde no uso dos sistemas.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Projetos em <span>destaque</span></h2>
+            <p class="section-lead fade-in">Produtos que arquitetei e cofundei — do primeiro commit à operação.</p>
+
+            <div class="projects-grid">
+                <article class="project-card fade-in">
+                    <div class="project-head">
+                        <h3 class="project-title">Rang Saúde</h3>
+                        <span class="project-role">Cofundador &amp; Arquiteto</span>
+                    </div>
+                    <p>
+                        Plataforma de gestão para a saúde pública brasileira, com foco em escalabilidade,
+                        integração com sistemas nacionais e conformidade com as regulamentações do SUS.
+                    </p>
+                    <div class="project-modules">
+                        <div class="module-card">
+                            <h4>Faturamento SUS</h4>
+                            <p>RAAS, BPA, AIH e e-SUS, com validação pela tabela SIGTAP.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Prontuário Eletrônico</h4>
+                            <p>Registros clínicos completos e seguros, com histórico centralizado.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Regulação &amp; Agendamentos</h4>
+                            <p>Regulação de consultas e exames, filas e priorização de atendimento.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Gestão de Contratos</h4>
+                            <p>Controle de contratos com unidades e prestadores de saúde.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Orçamento &amp; Cotas</h4>
+                            <p>Monitoramento de tetos e cotas de consultas e exames.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Estoque &amp; Farmácia</h4>
+                            <p>Controle de insumos e medicamentos com rastreabilidade.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Laboratório</h4>
+                            <p>Fluxo de pedidos, resultados e emissão de laudos.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Avaliação (NPS)</h4>
+                            <p>Medição de satisfação do paciente com o atendimento.</p>
+                        </div>
+                    </div>
+                    <a href="https://rangsaude.com.br" target="_blank" rel="noopener" class="btn">
+                        Visitar Rang Saúde <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-head">
+                        <h3 class="project-title">Torneyo</h3>
+                        <span class="project-role">Cofundador &amp; Responsável Técnico</span>
+                    </div>
+                    <p>
+                        SaaS para organização de campeonatos e torneios esportivos — futebol, futsal, society,
+                        artes marciais/BJJ e escolinhas esportivas. Sou o único desenvolvedor e responsável
+                        técnico: arquitetura de produto, back-end, front-end, banco de dados e infraestrutura.
+                    </p>
+                    <div class="project-modules">
+                        <div class="module-card">
+                            <h4>Inscrição online</h4>
+                            <p>Cadastro de equipes e atletas com workflow de documentos (RG, atestado médico).</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Chaveamento automático</h4>
+                            <p>Geração de grupos, chaves e tabelas sem trabalho manual.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Súmula digital</h4>
+                            <p>Resultados em tempo real e página pública do evento.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Multi-tenant white-label</h4>
+                            <p>Portais com marca e subdomínio próprios por cliente (ex.: cliente.torneyo.com).</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Permissões por papel</h4>
+                            <p>Controle de acesso para organizadores, árbitros e equipes.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Conformidade LGPD</h4>
+                            <p>Tratamento cuidadoso de dados pessoais, incluindo dados de menores.</p>
+                        </div>
+                    </div>
+                    <a href="https://torneyo.com" target="_blank" rel="noopener" class="btn">
+                        Visitar Torneyo <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                </article>
+
+                <article class="project-card fade-in">
+                    <div class="project-head">
+                        <h3 class="project-title">Panel4You</h3>
+                        <span class="project-role">Cofundador &amp; Responsável Técnico</span>
+                    </div>
+                    <p>
+                        SaaS de gestão de filas e atendimento com painel digital. Projetei e opero toda a
+                        arquitetura multi-serviço, do front-end à infraestrutura, como único desenvolvedor.
+                    </p>
+                    <div class="project-modules">
+                        <div class="module-card">
+                            <h4>Painéis sem código</h4>
+                            <p>Telas personalizáveis sem necessidade de programação, para qualquer TV.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Check-in por QR-code</h4>
+                            <p>Entrada na fila pelo celular, sem totem dedicado.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>API pública</h4>
+                            <p>Integração com agenda, prontuário e softwares de gestão de terceiros.</p>
+                        </div>
+                        <div class="module-card">
+                            <h4>Infra própria</h4>
+                            <p>VPS Ubuntu com Nginx como proxy reverso, SSL/TLS (Certbot) e PostgreSQL.</p>
+                        </div>
+                    </div>
+                    <a href="https://panel4you.io" target="_blank" rel="noopener" class="btn">
+                        Visitar Panel4You <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrações -->
+    <section id="integrations" class="section alt">
+        <div class="container">
+            <h2 class="section-title fade-in">Integrações com sistemas <span>nacionais</span></h2>
+            <p class="section-lead fade-in">
+                Experiência prática de homologação e operação com os sistemas do Ministério da Saúde.
+            </p>
+
+            <div class="card-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-pills" aria-hidden="true"></i></div>
+                    <h3>Hórus</h3>
+                    <p>Sistema do Ministério da Saúde para gestão de medicamentos e insumos.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
+                    <h3>RNDS</h3>
+                    <p>Rede Nacional de Dados em Saúde — interoperabilidade de dados clínicos.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-table-list" aria-hidden="true"></i></div>
+                    <h3>SIGTAP</h3>
+                    <p>Tabela de procedimentos do SUS: validação e gestão de competências.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-notes-medical" aria-hidden="true"></i></div>
+                    <h3>e-SUS AB</h3>
+                    <p>Integração com a Atenção Básica e envio de produção ao Ministério da Saúde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Habilidades <span>técnicas</span></h2>
+            <p class="section-lead fade-in">Stack principal e ferramentas do dia a dia.</p>
+
             <div class="skills-grid">
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-code"></i> Linguagens & Frameworks</h3>
+                    <h3><i class="fas fa-server" aria-hidden="true"></i> Back-end &amp; Dados</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Java</span>
-                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Spring</span>
                         <span class="skill-tag">Hibernate</span>
                         <span class="skill-tag">JPA</span>
-                        <span class="skill-tag">Spring</span>
-                        <span class="skill-tag">PrimeFaces</span>
-                        <span class="skill-tag">JSF</span>
-                        <span class="skill-tag">SOAP</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MySQL tuning</span>
                         <span class="skill-tag">REST</span>
+                        <span class="skill-tag">SOAP</span>
                         <span class="skill-tag">Linux</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-tools"></i> DevOps & Ferramentas</h3>
+                    <h3><i class="fas fa-brain" aria-hidden="true"></i> IA &amp; Desenvolvimento Assistido</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Claude Code</span>
+                        <span class="skill-tag">OpenCode</span>
+                        <span class="skill-tag">Fluxos multi-modelo</span>
+                        <span class="skill-tag">Prompt engineering</span>
+                        <span class="skill-tag">Code review com IA</span>
+                        <span class="skill-tag">Geração de testes</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-cogs" aria-hidden="true"></i> Infraestrutura &amp; DevOps</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">CI/CD</span>
                         <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Nginx</span>
+                        <span class="skill-tag">VPS / Linux</span>
+                        <span class="skill-tag">SSL/TLS</span>
                         <span class="skill-tag">Grafana</span>
                         <span class="skill-tag">New Relic</span>
                         <span class="skill-tag">Jira</span>
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-project-diagram"></i> Metodologias</h3>
+                    <h3><i class="fas fa-desktop" aria-hidden="true"></i> Front-end (server-side)</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">JSF</span>
+                        <span class="skill-tag">PrimeFaces</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-diagram-project" aria-hidden="true"></i> Metodologias</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Scrum</span>
                         <span class="skill-tag">Kanban</span>
@@ -848,231 +576,148 @@
                     </div>
                 </div>
                 <div class="skill-category fade-in">
-                    <h3><i class="fas fa-users"></i> Gestão & Liderança</h3>
+                    <h3><i class="fas fa-users" aria-hidden="true"></i> Gestão &amp; Liderança</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Entrevistas</span>
+                        <span class="skill-tag">Entrevistas técnicas</span>
                         <span class="skill-tag">Contratação</span>
-                        <span class="skill-tag">Dailys</span>
-                        <span class="skill-tag">Planejamento Estratégico</span>
+                        <span class="skill-tag">Mentoria</span>
+                        <span class="skill-tag">Gestão de conflitos</span>
+                        <span class="skill-tag">Comunicação com stakeholders</span>
+                        <span class="skill-tag">Planejamento estratégico</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
+    <!-- Formação -->
+    <section id="education" class="section alt">
         <div class="container">
-            <h2 class="section-title fade-in">Experiência Profissional</h2>
-            <div class="experience-card fade-in">
-                <div class="job-header">
-                    <div class="job-title">Liderança Técnica & Back-End</div>
-                    <span class="job-period">Experiência contínua</span>
+            <h2 class="section-title fade-in">Formação <span>acadêmica</span></h2>
+            <p class="section-lead fade-in">Aprendizado contínuo, com duas pós em andamento.</p>
+
+            <div class="education-grid">
+                <div class="education-card fade-in">
+                    <div class="degree">Bacharelado em Sistemas de Informação</div>
+                    <div class="institution">UNIPAR — Francisco Beltrão, PR</div>
+                    <span class="year">2012</span>
                 </div>
-                <div class="achievement-section">
-                    <h4><i class="fas fa-users-cog"></i> Atuação</h4>
-                    <ul class="achievement-list">
-                        <li>Coordenação e desenvolvimento de equipes, alinhadas a resultados de negócio</li>
-                        <li>Implementação de práticas de observabilidade e automação</li>
-                        <li>Arquitetura de soluções escaláveis e resilientes</li>
-                    </ul>
+                <div class="education-card fade-in">
+                    <div class="degree">Pós-graduação — Full Stack Java Developer</div>
+                    <div class="institution">UNICIV — Maringá, PR (EAD)</div>
+                    <span class="year">2021</span>
                 </div>
-                <p style="margin-top:1rem; text-align:center;">
-                    <a href="https://linkedin.com/in/alessandro-guimaraes" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px;">Ver experiência completa no LinkedIn</a>
-                </p>
+                <div class="education-card fade-in">
+                    <div class="degree">MBA em Arquitetura Full Cycle</div>
+                    <div class="institution">Faculdade Brasília (EAD)</div>
+                    <span class="year">Cursando</span>
+                </div>
+                <div class="education-card fade-in">
+                    <div class="degree">MBA em IA para Negócios</div>
+                    <div class="institution">Faculdade Exame (EAD)</div>
+                    <span class="year">Cursando</span>
+                </div>
+            </div>
+
+            <h3 class="section-title fade-in" style="font-size:1.4rem; margin-top:3rem;">Idiomas</h3>
+            <div class="lang-list fade-in">
+                <div class="lang-item">
+                    <strong>Português</strong>
+                    <span>Nativo</span>
+                </div>
+                <div class="lang-item">
+                    <strong>Inglês</strong>
+                    <span>Intermediário — leitura avançada</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section project">
-        <div class="container">
-            <div class="project-card fade-in">
-                <div class="project-header">
-                    <h2 class="section-title">Projetos em Destaque</h2>
-                    <p>Alguns dos produtos e iniciativas que liderei ou criei.</p>
-                </div>
-
-                <div class="project-title">Rang Saúde</div>
-                <p>Plataforma completa para gestão de saúde pública, com foco em escalabilidade, integração e experiência do usuário.</p>
-                <div class="project-modules">
-                    <div class="module-card">
-                        <h4>Agendamentos</h4>
-                        <p>Organização inteligente de agendas e filas de atendimento.</p>
-                    </div>
-                    <div class="module-card">
-                        <h4>Prontuário Eletrônico</h4>
-                        <p>Registros clínicos completos e seguros, com histórico centralizado.</p>
-                    </div>
-                    <div class="module-card">
-                        <h4>Relatórios & BI</h4>
-                        <p>Métricas de gestão, dashboards e indicadores de desempenho.</p>
-                    </div>
-                    <div class="module-card">
-                        <h4>Gestão de Filas</h4>
-                        <p>Otimização de atendimento e priorização eficiente.</p>
-                    </div>
-                    <div class="module-card">
-                        <h4>Gestão de Estoque</h4>
-                        <p>Controle de insumos e medicamentos com rastreabilidade.</p>
-                    </div>
-                    <div class="module-card">
-                        <h4>Comunicação (WhatsApp)</h4>
-                        <p>Envio de lembretes, confirmações e notificações via integração WhatsApp.</p>
-                    </div>
-                    <div class="module-card">
-                        <h4>Laboratório</h4>
-                        <p>Fluxo de pedidos, resultados e integração com sistemas laboratoriais.</p>
-                    </div>
-                </div>
-                <p style="margin-top: 1rem;">
-                    <a href="https://rangsaude.com.br" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px;">Visitar Rang Saúde</a>
-                </p>
-
-                <hr style="margin: 2rem 0; border: none; height: 1px; background: #e2e8f0;" />
-
-                <div class="project-title">BetScope.app</div>
-                <p>Aplicativo focado em análise e insights para apostas, com arquitetura enxuta e foco em performance.</p>
-                <div class="project-modules">
-                    <div class="module-card">
-                        <h4>Insights</h4>
-                        <p>Análises e sinais baseados em dados.</p>
-                    </div>
-                    <div class="module-card">
-                        <h4>UX Minimalista</h4>
-                        <p>Interface limpa e objetiva para tomada de decisão rápida.</p>
-                    </div>
-                    <div class="module-card">
-                        <h4>Escalabilidade</h4>
-                        <p>Serviços desacoplados e monitorados.</p>
-                    </div>
-                </div>
-                <p style="margin-top: 1rem;">
-                    <a href="https://betscope.app" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px;">Visitar BetScope</a>
-                </p>
-
-                <hr style="margin: 2rem 0; border: none; height: 1px; background: #e2e8f0;" />
-
-                <div class="project-title">Clube do Micro SaaS</div>
-                <p>Idealizador e criador da comunidade voltada a empreendedores de micro SaaS. Conteúdo, networking e suporte para construção de produtos enxutos e sustentáveis.</p>
-                <p style="margin-top: 1rem;">
-                    <a href="https://clubedomicrosaas.com/" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px;">Acessar Comunidade</a>
-                </p>
-                
-                <hr style="margin: 2rem 0; border: none; height: 1px; background: #e2e8f0;" />
-
-                <div class="project-title">OCampeonato.com</div>
-                <p>Sou sócio-fundador do <strong>OCampeonato.com</strong>, plataforma para organização e gestão de campeonatos, com foco em usabilidade e escalabilidade.</p>
-                <p style="margin-top: 1rem;">
-                    <a href="https://ocampeonato.com" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px;">Visitar OCampeonato.com</a>
-                </p>
-                <hr style="margin: 2rem 0; border: none; height: 1px; background: #e2e8f0;" />
-
-                <div class="project-title">Saúde no País</div>
-                <p>Portal informativo e de serviços voltados à saúde no Brasil, com foco em conteúdo acessível e navegação simples para o público em geral.</p>
-                <p style="margin-top: 1rem;">
-                    <a href="https://saudenopais.com.br" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px;">Visitar site</a>
-                </p>
-
-                <hr style="margin: 2rem 0; border: none; height: 1px; background: #e2e8f0;" />
-
-                <div class="project-title">Plantões Médicos Brasil</div>
-                <p>Plataforma voltada à organização e divulgação de plantões médicos no Brasil, conectando profissionais e oportunidades de forma eficiente.</p>
-                <p style="margin-top: 1rem;">
-                    <a href="http://plantoesmedicosbrasil.com.br/" target="_blank" rel="noopener" class="cta-button" style="padding: 10px 20px;">Visitar site</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    
-    <!-- Services Section -->
+    <!-- Serviços -->
     <section id="services" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Serviços</h2>
-            <div class="integrations-grid">
-                <div class="integration-card fade-in">
-                    <div class="integration-icon"><i class="fas fa-user-tie"></i></div>
+            <h2 class="section-title fade-in">Como posso <span>ajudar</span></h2>
+            <p class="section-lead fade-in">Frentes em que atuo, seja como líder interno ou em consultoria pontual.</p>
+
+            <div class="card-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-user-tie" aria-hidden="true"></i></div>
                     <h3>CTO-as-a-Service</h3>
-                    <p>Diagnóstico técnico, roadmap, governança e mentoria contínua para seu time.</p>
-                    <p style="margin-top:1rem;"><a href="#contact" class="cta-button" style="padding:10px 20px;">Agendar diagnóstico</a></p>
+                    <p>Diagnóstico técnico, roadmap, governança e mentoria contínua para o seu time.</p>
                 </div>
-                <div class="integration-card fade-in">
-                    <div class="integration-icon"><i class="fas fa-people-arrows"></i></div>
-                    <h3>Montagem de Equipe</h3>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-people-arrows" aria-hidden="true"></i></div>
+                    <h3>Montagem de equipe</h3>
                     <p>Job descriptions, entrevistas técnicas, rituais ágeis e onboarding estruturado.</p>
-                    <p style="margin-top:1rem;"><a href="#contact" class="cta-button" style="padding:10px 20px;">Agendar diagnóstico</a></p>
                 </div>
-                <div class="integration-card fade-in">
-                    <div class="integration-icon"><i class="fas fa-project-diagram"></i></div>
-                    <h3>Arquitetura & Integrações</h3>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></div>
+                    <h3>Arquitetura &amp; integrações</h3>
                     <p>Design e revisão de arquitetura (REST/SOAP), segurança e integrações corporativas.</p>
-                    <p style="margin-top:1rem;"><a href="#contact" class="cta-button" style="padding:10px 20px;">Agendar diagnóstico</a></p>
                 </div>
-                <div class="integration-card fade-in">
-                    <div class="integration-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>DevOps & Observabilidade</h3>
-                    <p>CI/CD, infraestrutura versionada, Signoz/Grafana/New Relic, SLO/SLI e alertas.</p>
-                    <p style="margin-top:1rem;"><a href="#contact" class="cta-button" style="padding:10px 20px;">Agendar diagnóstico</a></p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></div>
+                    <h3>Performance &amp; observabilidade</h3>
+                    <p>Diagnóstico de JVM, tuning de banco, CI/CD, Grafana/New Relic, SLO/SLI e alertas.</p>
                 </div>
-                <div class="integration-card fade-in">
-                    <div class="integration-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>Entrega de Software</h3>
-                    <p>MVP a produção: escopo, iterações curtas, qualidade e handover completo.</p>
-                    <p style="margin-top:1rem;"><a href="#contact" class="cta-button" style="padding:10px 20px;">Agendar diagnóstico</a></p>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-rocket" aria-hidden="true"></i></div>
+                    <h3>Entrega de software</h3>
+                    <p>De MVP a produção: escopo, iterações curtas, qualidade e handover completo.</p>
                 </div>
-                <div class="integration-card fade-in">
-                    <div class="integration-icon"><i class="fas fa-notes-medical"></i></div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-notes-medical" aria-hidden="true"></i></div>
                     <h3>Integrações SUS</h3>
-                    <p>Hórus, RNDS, SIGTAP, e-SUS AB, conformidade e homologação com observabilidade.</p>
-                    <p style="margin-top:1rem;"><a href="#contact" class="cta-button" style="padding:10px 20px;">Agendar diagnóstico</a></p>
+                    <p>Hórus, RNDS, SIGTAP e e-SUS AB: conformidade, homologação e observabilidade.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Soft Skills Section -->
-    <section id="soft-skills" class="section soft-skills">
+    <!-- Soft skills -->
+    <section id="soft-skills" class="section alt">
         <div class="container">
-            <h2 class="section-title fade-in">Competências Comportamentais</h2>
+            <h2 class="section-title fade-in">Competências <span>comportamentais</span></h2>
+            <p class="section-lead fade-in">O que sustenta o trabalho técnico no dia a dia.</p>
+
             <div class="soft-skills-grid">
                 <div class="soft-skill fade-in">
-                    <div class="soft-skill-icon"><i class="fas fa-comments"></i></div>
+                    <div class="soft-skill-icon"><i class="fas fa-users-gear" aria-hidden="true"></i></div>
                     <div>
-                        <h4>Comunicação</h4>
-                        <p>Clareza e objetividade na comunicação com time, negócio e stakeholders.</p>
-                    </div>
-                </div>
-                <div class="soft-skill fade-in">
-                    <div class="soft-skill-icon"><i class="fas fa-users-cog"></i></div>
-                    <div>
-                        <h4>Liderança</h4>
+                        <h4>Liderança técnica</h4>
                         <p>Desenvolvimento de pessoas, alinhamento estratégico e cultura de entrega.</p>
                     </div>
                 </div>
                 <div class="soft-skill fade-in">
-                    <div class="soft-skill-icon"><i class="fas fa-puzzle-piece"></i></div>
+                    <div class="soft-skill-icon"><i class="fas fa-comments" aria-hidden="true"></i></div>
                     <div>
-                        <h4>Resolução de Problemas</h4>
-                        <p>Abordagem estruturada e foco na raiz do problema.</p>
+                        <h4>Comunicação</h4>
+                        <p>Clareza com time técnico, clientes e stakeholders de negócio.</p>
                     </div>
                 </div>
                 <div class="soft-skill fade-in">
-                    <div class="soft-skill-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="soft-skill-icon"><i class="fas fa-puzzle-piece" aria-hidden="true"></i></div>
                     <div>
-                        <h4>Pensamento Sistêmico</h4>
-                        <p>Visão de arquitetura, trade-offs e impacto organizacional.</p>
+                        <h4>Resolução de problemas</h4>
+                        <p>Abordagem estruturada, sempre buscando a raiz do problema.</p>
                     </div>
                 </div>
                 <div class="soft-skill fade-in">
-                    <div class="soft-skill-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="soft-skill-icon"><i class="fas fa-sitemap" aria-hidden="true"></i></div>
+                    <div>
+                        <h4>Visão sistêmica</h4>
+                        <p>Arquitetura, trade-offs e impacto organizacional das decisões.</p>
+                    </div>
+                </div>
+                <div class="soft-skill fade-in">
+                    <div class="soft-skill-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
                     <div>
                         <h4>Negociação</h4>
-                        <p>Equilíbrio entre prazos, qualidade e valor de negócio.</p>
+                        <p>Equilíbrio entre prazo, qualidade e valor de negócio.</p>
                     </div>
                 </div>
                 <div class="soft-skill fade-in">
-                    <div class="soft-skill-icon"><i class="fas fa-check-double"></i></div>
+                    <div class="soft-skill-icon"><i class="fas fa-check-double" aria-hidden="true"></i></div>
                     <div>
                         <h4>Decisão</h4>
                         <p>Priorização assertiva baseada em dados e contexto.</p>
@@ -1082,95 +727,62 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contato -->
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title fade-in" style="color: #fff;">Contato</h2>
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <strong>Email</strong>
-                            <div><a href="mailto:alessandro@rangtecnologia.com.br" style="color:#fff; text-decoration: underline;">alessandro@rangtecnologia.com.br</a></div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <strong>Telefone</strong>
-                            <div><a href="tel:+5546984093769" style="color:#fff; text-decoration: underline;">+55 (46) 98409-3769</a></div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
-                        <div>
-                            <strong>LinkedIn</strong>
-                            <div><a href="https://linkedin.com/in/alessandro-guimaraes" target="_blank" rel="noopener" style="color:#fff; text-decoration: underline;">/in/alessandro-guimaraes</a></div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fab fa-github"></i></div>
-                        <div>
-                            <strong>GitHub</strong>
-                            <div><a href="https://github.com/ale0790" target="_blank" rel="noopener" style="color:#fff; text-decoration: underline;">@ale0790</a></div>
-                        </div>
+            <h2 class="section-title fade-in">Vamos <span>conversar</span></h2>
+            <p class="section-lead fade-in">
+                Aberto a oportunidades de liderança técnica, arquitetura e back-end — CLT, PJ ou consultoria.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-item fade-in">
+                    <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                    <div>
+                        <strong>E-mail</strong>
+                        <a href="mailto:webhouse01@gmail.com">webhouse01@gmail.com</a>
                     </div>
                 </div>
-                
+                <div class="contact-item fade-in">
+                    <div class="contact-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                    <div>
+                        <strong>Telefone / WhatsApp</strong>
+                        <a href="tel:+5546984093769">+55 (46) 98409-3769</a>
+                    </div>
+                </div>
+                <div class="contact-item fade-in">
+                    <div class="contact-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></div>
+                    <div>
+                        <strong>LinkedIn</strong>
+                        <a href="https://www.linkedin.com/in/alessandro-guimaraes" target="_blank" rel="noopener">/in/alessandro-guimaraes</a>
+                    </div>
+                </div>
+                <div class="contact-item fade-in">
+                    <div class="contact-icon"><i class="fab fa-github" aria-hidden="true"></i></div>
+                    <div>
+                        <strong>GitHub</strong>
+                        <a href="https://github.com/ale0790" target="_blank" rel="noopener">@ale0790</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; <span id="year"></span> Alessandro Guimarães. Todos os direitos reservados.</p>
+            <p>
+                &copy; <span id="year"></span> Alessandro Guimarães ·
+                <a href="curriculo.html">Currículo</a> ·
+                <a href="en/" hreflang="en" lang="en">English version</a>
+            </p>
         </div>
     </footer>
 
-    <!-- Scroll To Top Button -->
-    <button class="scroll-top" aria-label="Voltar ao topo">
-        <i class="fas fa-arrow-up"></i>
+    <button class="scroll-top" type="button" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <!-- Scripts -->
-    <script>
-        // Atualiza ano no footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Toggle menu mobile
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        // Fecha o menu ao clicar em um link (mobile)
-        navLinks.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => navLinks.classList.remove('active'));
-        });
-
-        // Animações de entrada ao rolar (fade-in)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Botão voltar ao topo
-        const scrollBtn = document.querySelector('.scroll-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 600) scrollBtn.classList.add('visible');
-            else scrollBtn.classList.remove('visible');
-        });
-        scrollBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-
+    <script src="assets/main.js" defer></script>
 </body>
 </html>

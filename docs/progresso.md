@@ -1,5 +1,30 @@
 # Progresso
 
+## 2026-08-17 (-03) — Reformulação completa
+
+### Estrutura
+- CSS e JS extraídos para `assets/styles.css`, `assets/cv.css` e `assets/main.js`.
+- Site agora tem 4 páginas (PT/EN como páginas reais, não toggle via JS — necessário para SEO):
+  - `index.html` (PT) e `en/index.html` (EN) — portfólio.
+  - `curriculo.html` (PT) e `en/resume.html` (EN) — currículo em coluna única, otimizado para impressão/PDF e parsing por ATS.
+- CVs `.docx` copiados para `cv/` e disponíveis para download.
+
+### Conteúdo
+- Adicionados: seção "Resultados em produção" (thread dump JVM 200+ threads, slow query log MySQL 85 mil+ queries, CI/CD + APM, IA no ciclo de desenvolvimento), timeline de experiência com 4 cargos e datas, projetos Torneyo e Panel4You, seção de idiomas.
+- Removidos: BetScope.app, Saúde no País, OCampeonato.com, Clube do Micro SaaS, Plantões Médicos Brasil.
+- E-mail de contato alterado para `webhouse01@gmail.com` (mesmo dos currículos).
+
+### SEO e metadados
+- `<title>`, `description`, `canonical`, `robots`, Open Graph e Twitter Card em todas as páginas.
+- `hreflang` pt-BR / en / x-default cruzando as versões de idioma.
+- JSON-LD Schema.org (`Person` + `ProfilePage`) com cargo, skills, formação e `sameAs`.
+- `robots.txt` e `sitemap.xml` criados.
+
+### UX e acessibilidade
+- Dark mode com `prefers-color-scheme` + toggle persistido em `localStorage`, sem flash de tela clara.
+- Skip link, `aria-label`/`aria-expanded` na navegação, `:focus-visible`, suporte a `prefers-reduced-motion`.
+- CSS de impressão com `@page A4` e quebras de página controladas.
+
 ## 2025-10-03 14:13 (-03)
 - Corrigido `index.html`: removido bloco de CSS solto antes do `<!DOCTYPE html>` que estava sendo renderizado como texto na página.
 
